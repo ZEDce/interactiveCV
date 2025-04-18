@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Basic reset and font from MVP's App.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-color: #f4f7f6; /* Removed in favor of image */
+  color: #333; /* Base text color */
+
+  /* Apply background image */
+  background-image: url('/orange-background.jpg');
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed; /* Keep the background fixed during scroll */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+/* Add semi-transparent background to main content container for readability */
+/* This targets the div with class="app-container ..." in page.tsx */
+/* @layer components {
+  .app-container {
+    /* Tailwind classes already provide padding, margin, shadow etc. */
+    /* We add a background color with opacity AND backdrop blur*/
+    /* @apply bg-white/50 backdrop-blur-md; /* White background with 50% opacity and medium blur */
+    /* You can adjust opacity (e.g., bg-white/30) or blur (backdrop-blur-sm, backdrop-blur-lg) */
+    /* @apply bg-black/10; */
+/* } 
+}
+ */
+
+/* Custom orange color variable for Tailwind */
+:root {
+  --orange-brand-color: #ff7900;
+}
+
+.text-orange-brand {
+  color: var(--orange-brand-color);
+}
+
+.bg-orange-brand {
+  background-color: var(--orange-brand-color);
+}
+
+.border-orange-brand {
+  border-color: var(--orange-brand-color);
+}
+
+/* Typing indicator */
+.typing-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  animation: fade-in-out 1s infinite ease-in-out both;
+}
+
+.animation-delay-150ms {
+  animation-delay: 0.15s;
+}
+
+.animation-delay-300ms {
+  animation-delay: 0.3s;
+}
+
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Message fade-in animation */
+.message-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px); /* Optional: slight upward movement */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
