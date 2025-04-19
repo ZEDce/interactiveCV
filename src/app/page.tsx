@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from 'next/image';
 import CvModal from "@/components/CvModal";
 import { FileText, RotateCcw } from "lucide-react";
+import { parseCvMarkdown, CvData } from "../lib/cvParser";
 
 const cvMarkdownContent = `
 # ADAM BARTKO
@@ -13,12 +14,11 @@ const cvMarkdownContent = `
 -   Telefón: +421 951 154 734
 -   Email: adam.bartko159@gmail.com
 -   Lokalita: Žilina, Slovenská republika
--   LinkedIn: [Doplniť URL]
--   Portfólio: [Doplniť URL, ak existuje]
+-   LinkedIn: https://www.linkedin.com/in/adam-bartko-274a6327b/
 
 **Profil / Zhrnutie:**
 
-Technicky orientovaný profesionál so silným záujmom a praktickými skúsenosťami v oblasti umelej inteligencie, automatizácie a vývoja softvéru. Preukázateľné výsledky v implementácii AI riešení (chatbot, agenti), zefektívňovaní procesov a tvorbe riešení na mieru (CRM, webové stránky, automatizácie). Skúsenosti s technickou podporou, prácou s dátami, vedením projektov a vývojom v Pythone a frontende (TypeScript, React). Hľadá dynamickú rolu, kde môže naplno využiť svoje technické zručnosti a prispieť k inovatívnym projektom v oblasti AI a technológií.
+Technicky orientovaný profesionál so silným záujmom a praktickými skúsenosťami v oblasti umelej inteligencie, automatizácie a vývoja softvéru. Preukázateľné výsledky v implementácii AI riešení (chatbot, agenti), zefektívňovaní procesov a tvorbe riešení na mieru (CRM, webové stránky, automatizácie). Skúsenosti s technickou podporou, prácou s dátami, vedením projektov a vývojom softvéru (backend aj frontend). Hľadám dynamickú rolu, kde môžem naplno využiť moje technické zručnosti a prispieť k inovatívnym projektom v oblasti AI a technológií.
 
 **Pracovné Skúsenosti:**
 
@@ -71,21 +71,18 @@ Technicky orientovaný profesionál so silným záujmom a praktickými skúsenos
 
 - **AI & Machine Learning:** Vývoj AI agentov, Prompt Engineering, Chatbot Development, Základné koncepty ML, AI Video Generation, Práca s LLM (API aj lokálne modely).
 - **Programovanie:** Python, TypeScript, React.
-- **Databázy:** PostgreSQL.
+- **Databázy:** Pinecone, MongoDB, MySQL
+- **Cloudové Služby:** Základná orientácia, API Integrácie
 - **Webové Technológie:** Frontend Development, Vývoj CRM systémov, API Integrácia.
 - **Nástroje a Platformy:** Git/Github, Docker, Linux, Virtual Machines (VM).
 - **Technická Podpora & Procesy:** Riešenie technických problémov, Tvorba dokumentácie, Optimalizácia procesov, Školenie používateľov, Analýza dát a reporting.
 - **Siete:** Sieťové technológie (Cisco základy, CCNA R&S).
 - **Hardvér:** PC Hardware.
-- **Jazyky:** Slovenčina (Materinský jazyk), Angličtina (B2), Čeština (Pokročilá).
+- **Jazyky:** Slovenčina (Materinský jazyk), Angličtina (B2)
 - **Ostatné:** Komunikácia, Tímová práca, Adaptabilita, Rýchle učenie sa, Riešenie problémov, Projektové myslenie, Automatizácia.
 
 **Záujmy:**
-- Umelá inteligencia,
-- Vývoj softvéru,
-- Automatizácia,
-- Nové technológie,
-- Tvorba multimediálneho obsahu,
+- Umelá inteligencia, Vývoj softvéru, Automatizácia, Nové technológie, Tvorba multimediálneho obsahu, Fitness
 `;
 
 export default function Home() {
@@ -97,13 +94,15 @@ export default function Home() {
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
   const n8nWebhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || '';
 
+  // Parse the CV data
+  const cvData: CvData = parseCvMarkdown(cvMarkdownContent);
+
   // Ref for scrolling chat history
   const historyContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const newId = `user_${Date.now()}_${Math.random().toString(36).substring(7)}`;
     setUserId(newId);
-    console.log("Generated User ID:", newId);
   }, []);
 
   // Scroll to bottom when chatHistory updates
@@ -161,7 +160,6 @@ export default function Home() {
     // Generate a new user ID for the new session
     const newId = `user_${Date.now()}_${Math.random().toString(36).substring(7)}`;
     setUserId(newId);
-    console.log("Generated New User ID:", newId);
   };
 
   return (
@@ -177,6 +175,15 @@ export default function Home() {
         <FileText size={20} />
         <span>CV</span>
       </button>
+
+      {/* Conditionally render the CvModal */}
+      {isCvModalOpen && cvData && (
+        <CvModal
+          isOpen={isCvModalOpen}
+          onClose={() => setIsCvModalOpen(false)}
+          cvData={cvData}
+        />
+      )}
 
       <div className="w-2/3 max-w-3xl rounded-xl shadow-lg p-4 md:p-6 border border-gray-200 bg-orange-50/75">
         <div className="text-center mb-8">
@@ -306,11 +313,6 @@ export default function Home() {
           Vytvorené s Next.js, TypeScript a ❤️ pre AI.
         </div>
       </div>
-       <CvModal
-        isOpen={isCvModalOpen}
-        onClose={() => setIsCvModalOpen(false)}
-        cvContent={cvMarkdownContent}
-      />
     </div>
   );
 } 
