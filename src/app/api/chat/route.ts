@@ -12,7 +12,11 @@ export async function POST(request: Request) {
     console.log("Received userId:", userId); // Log userId
 
     step = 'reading environment variable';
-    const webhookUrl = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL;
+    // --- Debug Logging for N8N_WEBHOOK_URL ---
+    console.log('Attempting to access N8N_WEBHOOK_URL');
+    const webhookUrl = process.env.N8N_WEBHOOK_URL; // Corrected variable name
+    console.log('Value:', webhookUrl); // Log the value obtained
+    // --- End Debug Logging ---
 
     if (!webhookUrl) {
       console.error("N8N_WEBHOOK_URL is not set in environment variables.");
