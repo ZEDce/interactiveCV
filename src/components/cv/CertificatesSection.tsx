@@ -1,9 +1,9 @@
-import React from 'react';
-import { CvData } from '../../lib/cvParser';
-import { Award } from 'lucide-react';
+import React from "react";
+import { CvData } from "../../lib/cvParser";
+import { Award } from "lucide-react";
 
 interface Props {
-  certificates: CvData['certificates'];
+  certificates: CvData["certificates"];
 }
 
 const CertificatesSection: React.FC<Props> = ({ certificates }) => {
@@ -16,8 +16,8 @@ const CertificatesSection: React.FC<Props> = ({ certificates }) => {
       <div className="space-y-2">
         {certificates.map((cert, index) => (
           <div key={index} className="text-sm text-gray-700">
-             <span className="font-medium">{cert.name}</span>
-             <span className="text-xs text-gray-500 ml-1">({cert.date})</span>
+            <span className="font-medium">{cert.name}</span>
+            <span className="text-xs text-gray-500 ml-1">({cert.date})</span>
           </div>
         ))}
       </div>
@@ -25,4 +25,4 @@ const CertificatesSection: React.FC<Props> = ({ certificates }) => {
   );
 };
 
-export default CertificatesSection; 
+export default CertificatesSection;

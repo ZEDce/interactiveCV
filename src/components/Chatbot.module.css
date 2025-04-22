@@ -5,17 +5,23 @@
   border-radius: 8px;
   padding: 1rem;
   /* background-color: #f9f9f9; /* Remove solid background */
-  background-color: rgba(255, 255, 255, 0.3); /* White background with 30% opacity */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* White background with 30% opacity */
   backdrop-filter: blur(6px); /* Apply blur */
   margin-top: 1.5rem;
   position: relative; /* Needed for absolute positioning of reset button */
 }
 
-.chatbotTitle { /* Added class for h3 */
-    margin-top: 0;
-    margin-bottom: 1rem; /* Restored original margin */
-    color: #333; /* Keep text dark for readability */
-    text-align: center;
+.chatbotTitle {
+  /* Added class for h3 */
+  margin-top: 0;
+  margin-bottom: 1rem; /* Restored original margin */
+  color: #333; /* Keep text dark for readability */
+  text-align: center;
 }
 
 .chatbotMessages {
@@ -26,7 +32,12 @@
   margin-bottom: 1rem;
   border: 1px solid rgba(238, 238, 238, 0.4); /* Lighter border, slightly less transparent than bg */
   /* background-color: #fff; /* Remove solid background */
-  background-color: rgba(255, 255, 255, 0.2); /* White background with 20% opacity message area */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* White background with 20% opacity message area */
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -79,28 +90,38 @@
   animation: bounce 1.4s infinite ease-in-out both;
 }
 
-.typingIndicator span:nth-of-type(1) { animation-delay: -0.32s; }
-.typingIndicator span:nth-of-type(2) { animation-delay: -0.16s; }
+.typingIndicator span:nth-of-type(1) {
+  animation-delay: -0.32s;
+}
+.typingIndicator span:nth-of-type(2) {
+  animation-delay: -0.16s;
+}
 
 @keyframes bounce {
-  0%, 80%, 100% { transform: scale(0); }
-  40% { transform: scale(1.0); }
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
 }
 
 /* Štýl pre chybovú správu */
 .message.bot.error .messageBubble {
-    background-color: #ffebee; /* Svetlo červená */
-    color: #c62828; /* Tmavšia červená */
-    border: 1px solid #ef9a9a;
+  background-color: #ffebee; /* Svetlo červená */
+  color: #c62828; /* Tmavšia červená */
+  border: 1px solid #ef9a9a;
 }
-
 
 .chatbotInputArea {
   display: flex;
   gap: 0.5rem; /* Medzera medzi inputom a tlačidlom */
 }
 
-.chatbotInput { /* Renamed from input selector */
+.chatbotInput {
+  /* Renamed from input selector */
   flex-grow: 1; /* Input zaberie väčšinu miesta */
   padding: 0.75rem;
   border: 1px solid #ccc;
@@ -109,13 +130,13 @@
 }
 
 .chatbotInput:focus {
-    outline: none;
-    border-color: #ff7900;
-    box-shadow: 0 0 0 2px rgba(255, 121, 0, 0.2);
+  outline: none;
+  border-color: #ff7900;
+  box-shadow: 0 0 0 2px rgba(255, 121, 0, 0.2);
 }
 
-
-.chatbotButton { /* Renamed from button selector */
+.chatbotButton {
+  /* Renamed from button selector */
   padding: 0.75rem 1.5rem;
   background-color: #ff7900; /* Oranžová */
   color: white;
@@ -137,18 +158,19 @@
 
 /* Responzivita pre chatbot */
 @media (max-width: 600px) {
-    .chatbotMessages {
-        height: 300px; /* Nižšia výška na mobiloch */
-    }
-    .message {
-        max-width: 90%; /* Správy môžu byť širšie na malých obrazovkách */
-    }
-    .chatbotInputArea {
-        flex-direction: column; /* Input a tlačidlo pod sebou */
-    }
-    .chatbotButton { /* Renamed from button selector */
-        width: 100%; /* Tlačidlo na celú šírku */
-    }
+  .chatbotMessages {
+    height: 300px; /* Nižšia výška na mobiloch */
+  }
+  .message {
+    max-width: 90%; /* Správy môžu byť širšie na malých obrazovkách */
+  }
+  .chatbotInputArea {
+    flex-direction: column; /* Input a tlačidlo pod sebou */
+  }
+  .chatbotButton {
+    /* Renamed from button selector */
+    width: 100%; /* Tlačidlo na celú šírku */
+  }
 }
 
 /* Styles for Predefined Questions */
@@ -206,4 +228,4 @@
 .resetButton:disabled {
   color: #ccc; /* Very light gray when disabled */
   cursor: not-allowed;
-} 
+}

@@ -5,8 +5,8 @@
 /* Basic reset and font from MVP's App.css */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -27,10 +27,10 @@ body {
 /* @layer components {
   .app-container {
     /* Tailwind classes already provide padding, margin, shadow etc. */
-    /* We add a background color with opacity AND backdrop blur*/
-    /* @apply bg-white/50 backdrop-blur-md; /* White background with 50% opacity and medium blur */
-    /* You can adjust opacity (e.g., bg-white/30) or blur (backdrop-blur-sm, backdrop-blur-lg) */
-    /* @apply bg-black/10; */
+/* We add a background color with opacity AND backdrop blur*/
+/* @apply bg-white/50 backdrop-blur-md; /* White background with 50% opacity and medium blur */
+/* You can adjust opacity (e.g., bg-white/30) or blur (backdrop-blur-sm, backdrop-blur-lg) */
+/* @apply bg-black/10; */
 /* } 
 }
  */
@@ -72,7 +72,8 @@ body {
 }
 
 @keyframes fade-in-out {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
   50% {
@@ -94,4 +95,4 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-} 
+}

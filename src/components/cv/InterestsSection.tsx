@@ -1,9 +1,9 @@
-import React from 'react';
-import { CvData } from '../../lib/cvParser';
-import { Smile, Tag } from 'lucide-react';
+import React from "react";
+import { CvData } from "../../lib/cvParser";
+import { Smile, Tag } from "lucide-react";
 
 interface Props {
-  interests: CvData['interests'];
+  interests: CvData["interests"];
 }
 
 const InterestsSection: React.FC<Props> = ({ interests }) => {
@@ -14,18 +14,19 @@ const InterestsSection: React.FC<Props> = ({ interests }) => {
         Záujmy
       </h3>
       <div className="flex flex-wrap gap-1.5">
-        {Array.isArray(interests) && interests.map((interest, index) => (
-           <span
-             key={index}
-             className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200"
-           >
-             <Tag size={12} className="mr-1" />
-             {interest}
-           </span>
-        ))}
+        {Array.isArray(interests) &&
+          interests.map((interest, index) => (
+            <span
+              key={index}
+              className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 border border-orange-200"
+            >
+              <Tag size={12} className="mr-1" />
+              {interest}
+            </span>
+          ))}
       </div>
     </div>
   );
 };
 
-export default InterestsSection; 
+export default InterestsSection;

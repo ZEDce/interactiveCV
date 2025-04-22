@@ -1,9 +1,9 @@
-import React from 'react';
-import { CvData } from '../../lib/cvParser';
-import { Lightbulb } from 'lucide-react';
+import React from "react";
+import { CvData } from "../../lib/cvParser";
+import { Lightbulb } from "lucide-react";
 
 interface Props {
-  projects: CvData['projects'];
+  projects: CvData["projects"];
 }
 
 const ProjectsSection: React.FC<Props> = ({ projects }) => {
@@ -16,9 +16,13 @@ const ProjectsSection: React.FC<Props> = ({ projects }) => {
       <div className="space-y-4">
         {projects.map((project, index) => (
           <div key={index}>
-            <h4 className="text-md font-semibold text-gray-800 mb-1">{project.title}</h4>
+            <h4 className="text-md font-semibold text-gray-800 mb-1">
+              {project.title}
+            </h4>
             <p className="text-sm text-gray-700 mb-1">{project.description}</p>
-            <p className="text-xs text-gray-500"><span className="font-medium">Tech:</span> {project.tech}</p>
+            <p className="text-xs text-gray-500">
+              <span className="font-medium">Tech:</span> {project.tech}
+            </p>
           </div>
         ))}
       </div>
@@ -26,4 +30,4 @@ const ProjectsSection: React.FC<Props> = ({ projects }) => {
   );
 };
 
-export default ProjectsSection; 
+export default ProjectsSection;

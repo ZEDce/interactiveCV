@@ -1,9 +1,9 @@
-import React from 'react';
-import { CvData, ExperienceEntry } from '../../lib/cvParser';
-import { Briefcase } from 'lucide-react';
+import React from "react";
+import { CvData } from "../../lib/cvParser";
+import { Briefcase } from "lucide-react";
 
 interface Props {
-  experience: CvData['experience'];
+  experience: CvData["experience"];
 }
 
 const ExperienceTimeline: React.FC<Props> = ({ experience }) => {
@@ -37,4 +37,4 @@ const ExperienceTimeline: React.FC<Props> = ({ experience }) => {
   );
 };
 
-export default ExperienceTimeline; 
+export default ExperienceTimeline;

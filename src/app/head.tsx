@@ -4,4 +4,4 @@ export default function Head() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
     </>
   );
-} 
+}
