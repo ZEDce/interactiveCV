@@ -1,58 +1,151 @@
-# Orange Interactive CV Application 🍊
+# Orange CV & Chatbot
 
-![Project Banner/Logo](public/orange-background.jpg) <!-- Optional: Add a banner or logo if you have one -->
+A modern, responsive CV viewer and AI chatbot built with Next.js, TypeScript, and Tailwind CSS. Featuring a Markdown-driven CV modal, interactive chat support, and a placeholder for PDF download functionality.
 
-Welcome to the interactive CV project! This application presents a dynamic and engaging way to showcase professional experience, featuring an interactive chatbot assistant.
+---
 
-## ✨ Key Features
+## Table of Contents
 
-*   **Interactive CV Display:** Presents resume information in a modern web format (potentially using `CvModal.tsx`).
-*   **AI Chatbot Assistant:** Allows users to ask questions about the CV content via an integrated chatbot (`Chatbot.tsx` and `/api/chat`).
-*   **Responsive Design:** Built with Tailwind CSS for adaptability across different screen sizes.
-*   **Modern Tech Stack:** Leverages Next.js for server-side rendering and a robust frontend framework.
+- [Demo](#demo)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running Locally](#running-locally)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## 🛠️ Tech Stack
+---
 
-*   **Framework:** [Next.js](https://nextjs.org/)
-*   **Language:** [TypeScript](https://www.typescriptlang.org/)
-*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-*   **Chat API:** (Likely leveraging Vercel AI SDK or similar based on `src/app/api/chat/route.ts`)
+## Demo
 
-## 🚀 Getting Started
+> **Live Preview:** Coming soon via GitHub Pages or Vercel.
 
-Instructions on how to set up and run this project locally.
+![CV Modal Preview](docs/cv-modal.png)
+![Chatbot Preview](docs/chatbot-preview.png)
+
+*(Replace with actual screenshots in `docs/` folder.)*
+
+---
+
+## Features
+
+- **CV Modal**: View a fully formatted CV parsed from Markdown.
+- **Interactive Chatbot**: Ask predefined or custom questions.
+- **Responsive Design**: Mobile-friendly layout and optimized UI.
+- **Future PDF Export**: Placeholder for client-side PDF download using `html2pdf.js`.
+- **Theming & Styling**: Uses Tailwind CSS and Lucide Icons.
+
+---
+
+## Technology Stack
+
+- Next.js (v13+)
+- React 18
+- TypeScript
+- Tailwind CSS
+- `html2pdf.js` (for PDF export placeholder)
+- `lucide-react` for icons
+
+---
+
+## Getting Started
 
 ### Prerequisites
 
-*   Node.js (v18 or later recommended)
-*   npm or yarn
+- Node.js (v16 or higher)
+- npm or Yarn
 
-### Installation & Running
+### Installation
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/ZEDce/interactiveCV.git
-    cd interactiveCV
-    ```
-2.  Install dependencies:
-    ```bash
-    npm install
-    # or
-    # yarn install
-    ```
-3.  Set up environment variables (if any - e.g., for OpenAI API Key). Create a `.env.local` file based on `.env.example` (if one exists).
-4.  Run the development server:
-    ```bash
-    npm run dev
-    # or
-    # yarn dev
-    ```
-5.  Open [http://localhost:3000](http://localhost:3000) in your browser.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YourUsername/orange-cv-app.git
+   cd orange-cv-app
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## 🤝 Contributing
+### Running Locally
 
-(Optional: Add guidelines if you plan for others to contribute)
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-## 📄 License
+- Open your browser and navigate to `http://localhost:3000`.
+- Click the **CV** button in the top-right corner to view the CV.
+- Use the chat input to ask questions or select quick actions.
 
-(Optional: Specify a license, e.g., MIT) 
+---
+
+## Usage
+
+- **View CV**: Click the orange **CV** button to open the modal.
+- **Ask Questions**: Use the input field or quick suggestion bubbles.
+- **Mobile Alignment**: Input and **Odoslať** button are aligned for mobile.
+- **PDF Export**: (Coming soon) Click the download icon in the modal header.
+
+---
+
+## Folder Structure
+
+```
+orange-cv-app/
+├── public/               # Static assets (images, icons, backgrounds)
+├── src/
+│   ├── app/              # Next.js App Router pages
+│   │   └── page.tsx      # Main landing page and chat UI
+│   ├── components/       # React components
+│   │   ├── CvModal.tsx
+│   │   ├── ChatBubble.tsx
+│   │   ├── Header.tsx
+│   │   └── QuickActions.tsx
+│   ├── lib/              # Helper libraries
+│   │   ├── cvContent.ts  # Markdown content for CV
+│   │   └── cvParser.ts   # Markdown-to-data parser
+│   └── hooks/            # Custom React hooks
+│       ├── useChat.ts
+│       └── useAutoScroll.ts
+├── docs/                 # (Optional) Screenshots and documentation
+├── html2pdf.d.ts         # TypeScript module declaration for pdf export
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add YourFeature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a Pull Request
+
+Please ensure your code adheres to existing style and includes relevant tests if applicable.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## Contact
+
+- **Email**: [adambartko159@gmail.com](mailto:adambartko159@gmail.com)
+- **LinkedIn**: [adam-bartko-274a6327b](https://www.linkedin.com/in/adam-bartko-274a6327b/) 

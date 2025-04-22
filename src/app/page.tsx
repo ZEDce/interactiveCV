@@ -103,7 +103,7 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg border border-transparent transition duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={loading}
             >
               {loading ? "Odosielam..." : "Odoslať"}
@@ -118,7 +118,7 @@ export default function Home() {
         </div>
 
         <div className="text-center mt-8 text-sm text-gray-500">
-          Kontakt: [Tvoj Email] | LinkedIn: [Link na tvoj LinkedIn profil]
+          Kontakt: <a href="mailto:adambartko159@gmail.com" className="underline hover:text-orange-600">adambartko159@gmail.com</a> | <a href="https://www.linkedin.com/in/adam-bartko-274a6327b/" target="_blank" rel="noopener noreferrer" className="underline hover:text-orange-600">LinkedIn</a>
           <br />
           Vytvorené s Next.js, TypeScript a ❤️ pre AI.
         </div>

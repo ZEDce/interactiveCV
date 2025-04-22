@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { X } from "lucide-react";
 // import ReactMarkdown from 'react-markdown'; // Removed
 import { CvData } from "../lib/cvParser"; // Import CvData type
@@ -22,6 +22,25 @@ interface CvModalProps {
 }
 
 const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, cvData }) => {
+  // Ref to the CV content for PDF generation
+  const contentRef = useRef<HTMLDivElement>(null);
+  // Function to download CV as PDF
+  const downloadPdf = () => {
+    if (!contentRef.current) return;
+    import("html2pdf.js").then((module) => {
+      const html2pdfFn = module.default || module;
+      html2pdfFn()
+        .from(contentRef.current!)
+        .set({
+          margin: 10,
+          filename: "cv.pdf",
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "pt", format: "a4", orientation: "portrait" },
+        })
+        .save();
+    });
+  };
+
   if (!isOpen || !cvData) return null; // Check for cvData as well
 
   // Removed cleanup logic for markdown markers
@@ -49,7 +68,7 @@ const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, cvData }) => {
         </div>
 
         {/* Modal Body with Scrolling */}
-        <div className="flex-grow overflow-y-auto p-6">
+        <div ref={contentRef} className="flex-grow overflow-y-auto p-6">
           {/* Two-Column Layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Left Column (Sidebar) */}
