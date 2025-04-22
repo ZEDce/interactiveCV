@@ -25,6 +25,7 @@ const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose, cvData }) => {
   // Ref to the CV content for PDF generation
   const contentRef = useRef<HTMLDivElement>(null);
   // Function to download CV as PDF
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const downloadPdf = () => {
     if (!contentRef.current) return;
     import("html2pdf.js").then((module) => {
