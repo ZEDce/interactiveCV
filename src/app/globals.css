@@ -14,12 +14,12 @@ body {
   color: #333; /* Base text color */
 
   /* Apply background image */
-  background-image: url('/orange-background.jpg');
-  background-size: cover; /* Cover the entire viewport */
-  background-position: center center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-attachment: fixed; /* Keep the background fixed during scroll */
-  min-height: 100vh; /* Ensure body takes full viewport height */
+  /* background-image: url('/orange-background.jpg'); */
+  /* background-size: cover; */
+  /* background-position: center center; */
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+  /* min-height: 100vh; */
 }
 
 /* Add semi-transparent background to main content container for readability */

@@ -164,8 +164,7 @@ export default function Home() {
 
   return (
     <div
-      style={{ backgroundImage: "url(/orange-background.jpg)" }}
-      className="min-h-screen bg-cover bg-center flex flex-col items-center justify-center p-4 relative"
+      className="min-h-screen bg-[url('/mobilebacgkground.png')] md:bg-[url('/orange-background.jpg')] bg-cover bg-center md:bg-center lg:bg-fixed flex flex-col items-center justify-center p-4 relative"
     >
       <button
         onClick={() => setIsCvModalOpen(true)}
